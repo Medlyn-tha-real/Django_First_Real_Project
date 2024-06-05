@@ -1,6 +1,8 @@
 import datetime
 from django.http import HttpResponse
 from django.shortcuts import render
+import logging
+
 
 # Create your views here.
 # Function based view
@@ -43,8 +45,7 @@ def ShowDateTimeInfo(request):
     dict={"TodaysDate": TodaysDate}
     return render(request, templatefilename, dict)
 
-import logging
-from datetime import date,datetime
+# from datetime import date,datetime
 
 def LoggingExample(request):
     logging.debug(f"Debug : I just entered into the View..{datetime.now()}")
@@ -65,7 +66,11 @@ def LoggingExample(request):
     
     return HttpResponse("<h1>Logging Demo</h1>")
 
-
+def iftagdemo(request):
+    data = {"name": "DON Ahmeed", "isVisible": True, "loggedIn": True, "countryCode": "USA", "workExperience": 8}
+    templatefilename = "djangobasicapp/ifTagDemo.html"
+    dict = {"Data":data}
+    return render(request, templatefilename, dict)
 
 
 

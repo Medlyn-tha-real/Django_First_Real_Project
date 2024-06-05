@@ -8,7 +8,7 @@ urlpatterns = [
     path("UseVariables", views.UseVariableAsResponse, name="UVR"),
     path("GetRequestDemo", views.GetRequestVariables, name="GRV"),
     path("ShowTime", views.ShowDateTimeInfo, name="SDTI"),
-    path("loggindemo", views.LoggingExample, name="LoggingExample")
+    path("ifTagDemo", views.iftagdemo, name="ITD")
 
 ]
 

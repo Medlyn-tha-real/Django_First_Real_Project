@@ -8,7 +8,9 @@ urlpatterns = [
     path("UseVariables", views.UseVariableAsResponse, name="UVR"),
     path("GetRequestDemo", views.GetRequestVariables, name="GRV"),
     path("ShowTime", views.ShowDateTimeInfo, name="SDTI"),
-    path("ifTagDemo", views.iftagdemo, name="ITD")
+    path("ifTagDemo", views.iftagdemo, name="ITD"),
+    path("showProducts", views.ShowProducts, name="SP"),
+
 
 ]
 

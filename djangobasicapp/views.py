@@ -67,10 +67,31 @@ def LoggingExample(request):
     return HttpResponse("<h1>Logging Demo</h1>")
 
 def iftagdemo(request):
-    data = {"name": "DON Ahmeed", "isVisible": True, "loggedIn": True, "countryCode": "USA", "workExperience": 8}
+    data = {"name": "DON Ahmeed", "isVisible": True, "loggedIn": True, "countryCode": "USA", "workExperience": 8, "statecode": None}
     templatefilename = "djangobasicapp/ifTagDemo.html"
     dict = {"Data":data}
     return render(request, templatefilename, dict)
+
+def ShowProducts(request):
+    Products = []
+
+    Processors = [
+        {'Category': 'AMD', 'processors': ['Ryzen 3990', 'Ryzen 3970', 'Ryzen 3960', 'Ryzen 3950']},
+        {'Category': 'Intel', 'processors': ['Xeon 8362', 'Xeon 8358', 'Xeon 8380']}
+    ];
+
+    Products.append( {'productID' :1, 'productName' :"AMD Ryzen 3990", 'quantity' :100, 'unitsInStock' :50, 'disContinued' :False, 'cost' :3000})
+    Products.append( {'productID' :2, 'productName' :"AMD Ryzen 3980", 'quantity' :100, 'unitsInStock' :50, 'disContinued' :False, 'cost' :4000})
+    Products.append( {'productID' :3, 'productName' :"AMD Ryzen 3970", 'quantity' :100, 'unitsInStock' :50, 'disContinued' :False, 'cost' :5000})
+    Products.append( {'productID' :4, 'productName' :"AMD Ryzen 3960", 'quantity' :100, 'unitsInStock' :50, 'disContinued' :False, 'cost' :6000})
+    Products.append( {'productID' :5, 'productName' :"AMD Ryzen 3950", 'quantity' :100, 'unitsInStock' :50, 'disContinued' :False, 'cost' :7000})
+    Products.append( {'productID' :6, 'productName' :"AMD Ryzen 3940", 'quantity' :100, 'unitsInStock' :50, 'disContinued' :False, 'cost' :8000})
+    Products.append( {'productID' :7, 'productName' :"AMD Ryzen 3930", 'quantity' :100, 'unitsInStock' :50, 'disContinued' :False, 'cost' :9000})
+    Products.append( {'productID' :8, 'productName' :"AMD Ryzen 3920", 'quantity' :100, 'unitsInStock' :50, 'disContinued' :False, 'cost' :10000})
+    TemplateFile =  "djangobasicapp/ShowProducts.html"
+    dict = {"Products" : Products, "TotalProducts" : len(Products), "Processors":Processors}
+    return render(request, TemplateFile, dict)
+
 
 
 

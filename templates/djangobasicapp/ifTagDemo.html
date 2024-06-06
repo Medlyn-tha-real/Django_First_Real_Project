@@ -43,5 +43,51 @@
             {% endif %}
         </div>
     </div>
+    <!-- OR -->
+    <div>
+        <div class="bg-info" p-2 mt-1>
+            {% if Data.name != "Raheem Ahmeed" %}
+                <h1 class="bg-info" p-2 mt-1>Hey {{Data.name}}! You're the MVP of this generation!!</h1>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Logical "AND" comparison -->
+    <div class="bg-info" p-2 mt-1>
+        {% if Data.workExperience > 10 and Data.workExperience < 20 %}
+            <h1>Hi {{ Data.name }} You are eligible for student Visa to study in Finland!!</h1>
+        {% else %}
+            <h1>Hi {{ Data.name }} You are not born to end up in base!</h1>
+        {% endif %}
+    </div>
+
+    <!-- Logical "OR" comparison -->
+    <div class="bg-info" p-2 mt-1>
+        {% if Data.workExperience > 10 or Data.workExperience < 20 %}
+            <h1>Hi {{ Data.name }} You are eligible for student Visa to study in Finland!!</h1>
+        {% else %}
+            <h1>Hi {{ Data.name }} You are not born to end up in base!</h1>
+        {% endif %}
+    </div>
+
+    <!-- Logical "IN" comparison -->
+    <div class="bg-info" p-2 mt-1>
+        {% if "DON" in Data.name %}
+            <h1>Hi {{ Data.name }} You are eligible for shenghen Visa to study in Finland and explore the whole of europe!!</h1>
+        {% endif %}
+    </div>
+
+    <!-- Logical "is None", "is not None" comparison -->
+    <div>
+        <div class="bg-info" p-2 mt-1>
+            {% if Data.statecode is None %}
+                <h1>Hi {{ Data.name }} Please Supply a value for StateCode!</h1>
+            {% endif %}
+        </div>
+    </div>
+
+
+
+
 </body>
 </html>

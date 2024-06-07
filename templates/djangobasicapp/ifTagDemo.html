@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+{% extends 'djangobasicapp/Layout.html' %}
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +13,9 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
     crossorigin="anonymous"></script>
 </head>
-<body>
+<body> -->
+{% block body_block %}
+
     <div class="bg-info" p-2 mt-1>
         {% if Data.loggedIn is True %}
             <h1>Hi! {{Data.name}}!, You are logged in Currently!</h1>
@@ -85,9 +89,8 @@
             {% endif %}
         </div>
     </div>
+    
+    {% endblock %}
 
-
-
-
-</body>
-</html>
+<!-- </body>
+</html> -->

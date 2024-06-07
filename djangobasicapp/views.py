@@ -1,7 +1,7 @@
 import datetime
 from django.http import HttpResponse
 from django.shortcuts import render
-import logging
+import requests
 
 
 # Create your views here.
@@ -73,6 +73,7 @@ def iftagdemo(request):
     return render(request, templatefilename, dict)
 
 def ShowProducts(request):
+    
     Products = []
 
     Processors = [
@@ -92,6 +93,41 @@ def ShowProducts(request):
     dict = {"Products" : Products, "TotalProducts" : len(Products), "Processors":Processors}
     return render(request, TemplateFile, dict)
 
+
+def LoadUsers(request):
+    templatefilename = "djangobasicapp/ShowUsers.html"
+    response = CallRestAPI()
+    dict = {"users": response.json()}
+    return render(request, templatefilename, dict)
+
+def CallRestAPI():
+    BASE_URL = "https://fakestoreapi.com"
+    response = requests.get(f"{BASE_URL}/users")
+    return(response)
+
+def Index(request):
+    return render(request, "djangobasicapp/Index.html")
+
+def LoadUsers2(request):
+    Templatefilename = "djangobasicapp/ShowUsersAsCard.html"
+    image = 'https://i.pravatar.cc';
+    response = CallRestAPI()
+    dict = {"users": response.json(), "image":image}
+    return render(request, Templatefilename, dict)
+
+def CallRestAPI2(userid):
+    BASE_URL = "https://fakestoreapi.com"
+    response = requests.get(f"{BASE_URL}/users/{userid}")
+    return(response)
+
+
+def LoadUserDetails(request):
+    counter=1
+    templatefilename = "djangobasicapp/ShowUserDetails.html"
+    response=CallRestAPI2(counter)
+    image = "https://i.pravatar.cc";
+    dict = {"user": response.json(), "image":image}
+    return render(request, templatefilename, dict)
 
 
 

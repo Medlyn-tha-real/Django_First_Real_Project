@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+{% extends 'djangobasicapp/Layout.html' %}
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +13,9 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
     crossorigin="anonymous"></script>
 </head>
-<body>
+<body> -->
+{% block body_block %}
+
     <h1>Server Time is {{TodaysDate}}</h1>
 
     <table class="table">
@@ -36,6 +40,7 @@
             </tr>
         </thead>
     </table>
+    {% endblock %}
     
-</body>
-</html>
+<!-- </body>
+</html> -->

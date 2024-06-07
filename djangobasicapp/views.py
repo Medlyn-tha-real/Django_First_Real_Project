@@ -2,6 +2,7 @@ import datetime
 from django.http import HttpResponse
 from django.shortcuts import render
 import requests
+import logging
 
 
 # Create your views here.

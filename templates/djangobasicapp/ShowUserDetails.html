@@ -10,7 +10,7 @@
             <div class="card w-75 p-2">
                 <div class="card-header" style="height:300px;">
                     <p><b>User Name : {{ user.username}}</b></p>
-                    <img src="{{image}}" alt="image" class="card-img-top" height="200">
+                    <img src="{{image}}" alt="image" class="card-img-top" height="240">
                 </div>
                 <div class="card-body">
                     <dl>
@@ -24,14 +24,31 @@
                         <dd><i>{{user.phone}}</i></dd>
                     </dl>
                 </div>
-                <div class="card-footer"></div>
+                <div class="card-footer">
+                    <form method="post" action="{% url 'ShowUsersDetails'%}">
+                        {% csrf_token %}
+
+                        <input type="hidden" name="useridcounter" value="{{user.id}}" />
+
+                        <button value="Next" type="submit" name="btnNext" class="btn btn-danger btn-sm">
+                            <span class="bi bi-chevron-right"></span>Next User
+                        </button>
+
+                        <button value="Previous" type="submit" name="btnPrevious" class="btn btn-danger me-2">
+                            <span class="bi bi-chevron-left"></span>Previous User
+                        </button>
+
+                        <input type="checkbox" class="form-check-input" id="chkShowHide" onclick="toggleAll2()" />
+                        <label for="chkShowHide" id="lblShowHide">Show Address Details</label>
+                    </form>
+                </div>
             </div>
         </div>
 
         
         <div class="col-6">
             <h2>Adress Details</h2>
-            <div class="card w-50 p-2">
+            <div class="card w-50 p-2" id="AddressDetails-{{user.id}}" style="display:none">
                 <div class="card-header" style="height:100px;">
                     <p><b>City : {{user.address.city}}</b></p>
                 </div>
@@ -55,5 +72,17 @@
 
     </div>
 </div>
+
+<script>
+    function toggleAll2(){
+        $('div[id*="AddressDetails-"]').toggle();
+
+        if($("#lblShowHide").text() == "Hide Address Details")
+            $("#lblShowHide").text("Show Address Details")
+        else
+            $("#lblShowHide").text("Hide Address Details")
+    }
+
+</script>
 
 {% endblock %}

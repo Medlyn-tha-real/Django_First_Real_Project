@@ -12,7 +12,10 @@ urlpatterns = [
     path("ifTagDemo", views.iftagdemo, name="ITD"),
     path("showProducts", views.ShowProducts, name="SP"),
     path("showUsers", views.LoadUsers, name="LoadUsers"),
+    path("showUsersAsCard", views.LoadUsers2, name="LoadUsers2"),
     path("showUserDetails", views.LoadUserDetails, name="ShowUsersDetails"),
+    path("PassModel", views.PassModelTotemplate, name="PMT"),
+
 
 ]
 

@@ -4,6 +4,8 @@ from django.shortcuts import render
 import requests
 import logging
 
+from djangobasicapp.models import Authors
+
 
 # Create your views here.
 # Function based view
@@ -123,12 +125,42 @@ def CallRestAPI2(userid):
 
 
 def LoadUserDetails(request):
-    counter=1
+
+    if request.method == "POST":
+        counter = int(request.POST.get("useridcounter"))
+
+        if(request.POST.get("btnNext")):
+            counter += 1
+            if counter >= 11:
+                counter = 1
+        elif(request.POST.get("btnPrevious")):
+            counter -= 1
+            if counter == 0:
+                counter = 1
+        
+    else:
+        counter=1
+        
     templatefilename = "djangobasicapp/ShowUserDetails.html"
     response=CallRestAPI2(counter)
     image = "https://i.pravatar.cc";
     dict = {"user": response.json(), "image":image}
     return render(request, templatefilename, dict)
 
+def PassModelTotemplate(request):
+    # instantiated model class object
+    obj = Authors("Raheem Don", "Europe", "Businesss")
+    templatefilename = "djangobasicapp/PassModel.html"
 
+    AuthorList = []
+    AuthorList.append(Authors("Ahmeed Medlyn", "Europe", "Businesss"))
+    AuthorList.append(Authors("Ahmeed MVP", "Europe", "Businesss"))
+    AuthorList.append(Authors("Brown Medlyn", "Europe", "Businesss"))
+    AuthorList.append(Authors("Dino Medlyn", "Europe", "Businesss"))
+    AuthorList.append(Authors("Ahmeed Pelumi", "Europe", "Businesss"))
+    AuthorList.append(Authors("Ahmeed Wealth", "Europe", "Businesss"))
+
+    # Array of Objects
+    Dict = {"Author":obj, "Authors": AuthorList}
+    return render(request, templatefilename, Dict)
 

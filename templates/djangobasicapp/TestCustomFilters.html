@@ -1,0 +1,22 @@
+{% load customfilters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Custom Filters</title>
+</head>
+<body>
+    <ul>
+        <li>Course Description : {{Description | first_five_upper}}</li>
+        <li>Course Description : {{Description | first_five_upper | lower}}</li>
+        <li>Course Description : {{Description | specified_upper:10}}</li>
+        <li>Course Description : {{Description | length_limit:20}}</li>
+        <li>InDemand : {{InDemand | rating}}</li>
+        <li>PollNumber : {{PollNumber}} i.e. ({{PollNumber | convert_number_to_words}})</li>
+
+    </ul>
+    
+</body>
+</html>

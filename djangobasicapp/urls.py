@@ -15,6 +15,9 @@ urlpatterns = [
     path("showUsersAsCard", views.LoadUsers2, name="LoadUsers2"),
     path("showUserDetails", views.LoadUserDetails, name="ShowUsersDetails"),
     path("PassModel", views.PassModelTotemplate, name="PMT"),
+    path("BIFDemo", views.BuiltInFiltersDemo, name="BIFD"),
+    path("CustomFiltersDemo", views.CustomFiltersDemo, name="CFD"),
+
 
 
 ]

@@ -164,3 +164,62 @@ def PassModelTotemplate(request):
     Dict = {"Author":obj, "Authors": AuthorList}
     return render(request, templatefilename, Dict)
 
+
+def BuiltInFiltersDemo(request):
+    Processors = [
+        {"name": "Ryzen 3970", "cores": 32},
+        {"name": "Ryzen 3980", "cores": 16},
+        {"name": "Ryzen 3930", "cores": 64},
+    ]
+    dict= {
+        "ProbationPeriod": 4,
+        "FirstName": "Raheem",
+        "LastName": "Ahmeed",
+        "PayForCut": 787543,
+        "FirstQuarter": ["Jan", "Feb", "Mar"],
+        "SecondQuarter": ["Apr", "May", "Jun"],
+        "FQuarter": [1,2,3],
+        "SQuarter": [4,5,6],
+        "AboutMe": "God like aura",
+        "now": datetime.datetime.now(),
+        "PreviousCut": "",
+        "NextCut": None,
+        "Processors": Processors,
+        "Message": "<h1>I am the main character</h1>",
+        "Website": " https://www.uiacademy.co.in"
+    }
+    return render(request, "djangobasicapp/BIFDemo.html", dict)
+        
+def CustomFiltersDemo(request):
+    webframeworks = {
+        'Description' : "This is my life, i am the main character and i am the DON!!",
+        'InDemand' : "4.9",
+        'PollNumber' : 34565
+        }
+    return render(request, "djangobasicapp/TestCustomFilters.html", webframeworks)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

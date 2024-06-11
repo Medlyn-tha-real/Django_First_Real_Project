@@ -198,7 +198,8 @@ def CustomFiltersDemo(request):
         }
     return render(request, "djangobasicapp/TestCustomFilters.html", webframeworks)
 
-
+def TestStaticFiles(request):
+    return render(request, "djangobasicapp/TestStaticFiles.html")
 
 
 

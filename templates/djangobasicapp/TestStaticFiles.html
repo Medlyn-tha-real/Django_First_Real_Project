@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Static Files</title>
+    {% load static %}
+    <link href="{% static 'djangobasicapp/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'djangobasicapp/js/bootstrap.bundle.min.js' %}"></script>
+</head>
+<body>
+    <table class="table">
+        <caption>
+            Working With Static Files
+        </caption>
+        <thead>
+            <tr>
+                <td><img src="{% static 'djangobasicapp/images/2.jpg' %}" alt="A picture"></td>
+                <td><img src="{% static 'djangobasicapp/images/4.jpg' %}" alt="A picture"></td>
+            </tr>
+        </thead>
+    </table>
+    
+</body>
+</html>

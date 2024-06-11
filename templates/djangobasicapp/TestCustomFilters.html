@@ -1,13 +1,10 @@
+{% extends 'djangobasicapp/Layout.html' %}
+
 {% load customfilters %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Custom Filters</title>
-</head>
-<body>
+
+{% block body_block %}
+
     <ul>
         <li>Course Description : {{Description | first_five_upper}}</li>
         <li>Course Description : {{Description | first_five_upper | lower}}</li>
@@ -18,5 +15,4 @@
 
     </ul>
     
-</body>
-</html>
+{% endblock %}
